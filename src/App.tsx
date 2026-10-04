@@ -1,6 +1,5 @@
 import ContactSection from './components/ContactSection';
 import CTA from './components/CTA';
-import FeaturedProducts from './components/FeaturedProducts';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
@@ -22,7 +21,6 @@ export default function App() {
         <Hero />
         <SellingStrip />
         <Products />
-        <FeaturedProducts />
         <CTA />
         <ContactSection />
       </main>
