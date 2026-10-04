@@ -1,11 +1,11 @@
-import { ArrowRight, BadgeCheck, HardDrive, Headset, MessageCircle, ShieldCheck, Wrench } from 'lucide-react';
+import { ArrowRight, Cable, Headphones, Laptop, Usb } from 'lucide-react';
 import { site } from '../config/site';
 import Reveal from './Reveal';
 
 const trustIndicators = [
-  { label: 'Quality-focused', icon: BadgeCheck },
-  { label: 'Practical advice', icon: MessageCircle },
-  { label: 'Customer-first support', icon: Headset },
+  { label: 'Flash Disks & Memory Cards', icon: Usb },
+  { label: 'Earphones & Headphones', icon: Headphones },
+  { label: 'Chargers, Cables & Adapters', icon: Cable },
 ];
 
 export default function Hero() {
@@ -28,7 +28,7 @@ export default function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-400 opacity-60" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-400" />
               </span>
-              {site.values.join(' • ')}
+              {site.name}
             </p>
           </Reveal>
 
@@ -37,16 +37,13 @@ export default function Hero() {
               id="hero-heading"
               className="mt-6 text-[2.5rem] font-extrabold leading-[1.05] text-white sm:text-5xl lg:text-[3.6rem]"
             >
-              Power Your Work.
-              <br />
-              <span className="text-brand-400">Upgrade Your Tech.</span>
+              {site.tagline}
             </h1>
           </Reveal>
 
           <Reveal delay={160}>
             <p className="mt-6 text-lg leading-relaxed text-slate-300 sm:text-xl">
-              Reliable computers, accessories, repairs and practical IT solutions for students, professionals and
-              businesses.
+              Laptops, computers and accessories.
             </p>
           </Reveal>
 
@@ -102,21 +99,21 @@ function HeroVisual() {
         {/* Floating cards */}
         <FloatingCard
           className="-left-3 top-6 sm:-left-8 sm:top-10"
-          icon={<Wrench size={18} />}
-          title="Repairs & Upgrades"
-          subtitle="Diagnosis to fix"
+          icon={<Laptop size={18} />}
+          title="Laptops & Computers"
+          subtitle="Ask about current availability"
         />
         <FloatingCard
           className="-right-2 top-1/2 [animation-delay:1.5s] sm:-right-8"
-          icon={<HardDrive size={18} />}
-          title="SSD & RAM"
-          subtitle="Faster, smoother PCs"
+          icon={<Usb size={18} />}
+          title="Computer Accessories"
+          subtitle="Ask about current availability"
         />
         <FloatingCard
           className="-bottom-6 right-6 hidden [animation-delay:3s] sm:flex"
-          icon={<ShieldCheck size={18} />}
-          title="Quality accessories"
-          subtitle="Chargers, storage & more"
+          icon={<Cable size={18} />}
+          title="Chargers, Cables & Adapters"
+          subtitle="Ask about current availability"
         />
       </div>
     </Reveal>

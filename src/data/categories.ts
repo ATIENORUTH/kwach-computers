@@ -1,6 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { Cpu, Keyboard, Laptop } from 'lucide-react';
-import type { NeedOption } from './contact';
+import { Cable, Headphones, Keyboard, Laptop, Usb } from 'lucide-react';
 
 export interface Category {
   label: string;
@@ -9,39 +8,47 @@ export interface Category {
   image: string;
   imageAlt: string;
   icon: LucideIcon;
-  items: string[];
-  need: NeedOption;
 }
 
 export const categories: Category[] = [
   {
     label: 'Computers',
-    title: 'Laptops & Desktops',
-    description: 'Everyday laptops, business machines, desktops and work-ready computers.',
-    image: '/images/category-laptops.webp',
-    imageAlt: 'Laptop on a clean wooden desk',
+    title: 'Laptops & Computers',
+    description: 'Laptops and computers.',
+    image: '/images/laptops-computers.jpeg',
+    imageAlt: 'Sample laptop photo for the laptops and computers category',
     icon: Laptop,
-    items: ['Business laptops', 'Student laptops', 'Desktop PCs'],
-    need: 'Laptop / Desktop',
   },
   {
     label: 'Accessories',
-    title: 'Accessories',
-    description: 'Keyboards, mice, storage, chargers, cables, headsets and other essentials.',
-    image: '/images/category-accessories.webp',
-    imageAlt: 'Wireless keyboard, mouse and headphones on a desk',
+    title: 'Computer Accessories',
+    description: 'Computer accessories.',
+    image: '/images/computer%20accessories.jpg',
+    imageAlt: 'Computer mouse shown as an accessory example',
     icon: Keyboard,
-    items: ['Flash disks & memory cards', 'Earphones & headphones', 'Chargers, cables & adapters'],
-    need: 'Accessories',
   },
   {
-    label: 'Upgrades',
-    title: 'Computer Parts',
-    description: 'Components and upgrades to keep your setup performing at its best.',
-    image: '/images/category-parts.webp',
-    imageAlt: 'Close-up of a processor installed on a motherboard',
-    icon: Cpu,
-    items: ['SSDs & hard drives', 'RAM upgrades', 'Replacement parts'],
-    need: 'Computer Parts / Upgrade',
+    label: 'Storage',
+    title: 'Flash Disks & Memory Cards',
+    description: 'Flash disks and memory cards.',
+    image: '/images/flash%20cards.jpeg',
+    imageAlt: 'Portable storage product shown as a storage category example',
+    icon: Usb,
+  },
+  {
+    label: 'Audio',
+    title: 'Earphones & Headphones',
+    description: 'Earphones and headphones.',
+    image: '/images/product-headphones.webp',
+    imageAlt: 'Unbranded over-ear headphones',
+    icon: Headphones,
+  },
+  {
+    label: 'Power',
+    title: 'Chargers, Cables & Adapters',
+    description: 'Chargers, cables and adapters.',
+    image: '/images/charger.jpg',
+    imageAlt: 'Charger and cable shown as a charger category example',
+    icon: Cable,
   },
 ];

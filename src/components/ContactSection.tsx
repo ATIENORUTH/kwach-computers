@@ -1,37 +1,29 @@
-import { Clock, Mail, MapPin, Phone } from 'lucide-react';
+import { Instagram, Mail, Phone } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { site } from '../config/site';
 import { mailLink, telLink, whatsappLink } from '../lib/links';
-import { WhatsAppIcon } from './BrandIcons';
+import { TikTokIcon, WhatsAppIcon } from './BrandIcons';
 import ContactForm from './ContactForm';
 import Reveal from './Reveal';
 import SectionHeading from './SectionHeading';
 
 export default function ContactSection() {
   return (
-    <section id="contact" aria-labelledby="contact-heading" className="bg-slate-50 py-20 sm:py-24 lg:py-28">
+    <section id="contact" aria-labelledby="contact-heading" className="bg-brand-50 py-20 sm:py-24 lg:py-28">
       <div className="container grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
         <div>
           <SectionHeading
             id="contact-heading"
             eyebrow="Contact"
-            title="Let's find the right solution for you."
-            description="Order, enquire or book a repair. Reach us on WhatsApp, give us a call or send the form and we'll get back to you."
+            title={site.name}
+            description="Contact us about current product availability and prices."
           />
 
           <Reveal delay={100} className="mt-10 space-y-4">
             <ContactItem icon={<WhatsAppIcon size={20} />} label="WhatsApp" accent="whatsapp">
-              {site.phones.map((p) => (
-                <a
-                  key={p.international}
-                  href={whatsappLink(undefined, p)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block font-semibold text-navy-950 transition hover:text-brand-700"
-                >
-                  {p.display}
-                </a>
-              ))}
+              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="block font-semibold text-navy-950 transition hover:text-brand-700">
+                {site.phones[0].display}
+              </a>
             </ContactItem>
             <ContactItem icon={<Phone size={20} />} label="Call us">
               {site.phones.map((p) => (
@@ -49,14 +41,16 @@ export default function ContactSection() {
                 {site.email}
               </a>
             </ContactItem>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-              <ContactItem icon={<Clock size={20} />} label="Hours">
-                <p className="font-semibold text-navy-950">{site.hours}</p>
-              </ContactItem>
-              <ContactItem icon={<MapPin size={20} />} label="Location">
-                <p className="font-semibold text-navy-950">{site.location}</p>
-              </ContactItem>
-            </div>
+            <ContactItem icon={<Instagram size={20} />} label="Instagram">
+              <a href={site.socials.instagram} target="_blank" rel="noopener noreferrer" className="btn border border-slate-200 px-3 py-2 text-sm text-navy-950 hover:border-brand-500">
+                Instagram: kwach_001_computers
+              </a>
+            </ContactItem>
+            <ContactItem icon={<TikTokIcon size={20} />} label="TikTok">
+              <a href={site.socials.tiktok} target="_blank" rel="noopener noreferrer" className="btn border border-slate-200 px-3 py-2 text-sm text-navy-950 hover:border-brand-500">
+                TikTok: @kwach_001.computers
+              </a>
+            </ContactItem>
           </Reveal>
         </div>
 

@@ -23,7 +23,7 @@ export default function Logo({ className, tone = 'light' }: LogoProps) {
             tone === 'light' ? 'text-white' : 'text-navy-950',
           )}
         >
-          Kwach <span className="text-brand-400">Computers</span>
+          KWACH_001 <span className="text-brand-400">COMPUTERS</span>
         </span>
         <span
           className={cn(

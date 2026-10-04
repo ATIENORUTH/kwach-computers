@@ -42,7 +42,7 @@ export default function Navbar() {
       )}
     >
       <nav className="container flex h-16 items-center justify-between sm:h-[4.5rem]" aria-label="Main navigation">
-        <a href="#home" onClick={close} aria-label="Kwach Computers — home">
+        <a href="#home" onClick={close} aria-label="KWACH_001 COMPUTERS — home">
           <Logo />
         </a>
 
@@ -72,7 +72,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2">
           <a href="#contact" className="btn-primary hidden px-4 py-2.5 sm:inline-flex">
-            Get a Quote
+            Contact Us
           </a>
           <button
             type="button"
@@ -120,7 +120,7 @@ export default function Navbar() {
             ))}
             <li className="mt-3">
               <a href="#contact" onClick={close} tabIndex={open ? 0 : -1} className="btn-primary w-full py-3.5">
-                Get a Quote
+                Contact Us
               </a>
             </li>
           </ul>

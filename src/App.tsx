@@ -1,16 +1,12 @@
-import About from './components/About';
 import ContactSection from './components/ContactSection';
 import CTA from './components/CTA';
 import FeaturedProducts from './components/FeaturedProducts';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
-import HowItWorks from './components/HowItWorks';
 import Navbar from './components/Navbar';
 import Products from './components/Products';
 import SellingStrip from './components/SellingStrip';
-import Services from './components/Services';
-import WhyChooseUs from './components/WhyChooseUs';
 
 export default function App() {
   return (
@@ -27,10 +23,6 @@ export default function App() {
         <SellingStrip />
         <Products />
         <FeaturedProducts />
-        <Services />
-        <WhyChooseUs />
-        <About />
-        <HowItWorks />
         <CTA />
         <ContactSection />
       </main>

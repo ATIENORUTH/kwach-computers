@@ -16,13 +16,13 @@ export default function FeaturedProducts() {
   );
 
   return (
-    <section id="featured" aria-labelledby="featured-heading" className="bg-slate-50 py-20 sm:py-24 lg:py-28">
+    <section id="featured" aria-labelledby="featured-heading" className="bg-brand-50 py-20 sm:py-24 lg:py-28">
       <div className="container">
         <SectionHeading
           id="featured-heading"
           eyebrow="Featured products"
-          title="Popular picks from our shelves."
-          description="Stock changes often. Tap “Request Price” to get current prices and availability on WhatsApp."
+          title="Ask About Current Stock"
+          description="Contact us for current models, availability and prices."
           align="center"
         />
 
@@ -60,11 +60,7 @@ export default function FeaturedProducts() {
         </div>
 
         <p className="mt-10 text-center text-sm text-slate-500">
-          Looking for something not listed?{' '}
-          <a href="#contact" className="font-semibold text-brand-700 underline-offset-4 hover:underline">
-            Tell us what you need
-          </a>{' '}
-          and we&apos;ll source it.
+          Prices and availability are confirmed on enquiry.
         </p>
       </div>
     </section>

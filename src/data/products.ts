@@ -1,10 +1,12 @@
-/**
- * Featured products.
- * To add a product: copy one object, change the fields and drop the image in /public/images.
- * Set `priceFrom` (a number in KSh) to show "From KSh …", or leave it out to show "Contact for price".
- */
+/** Product categories shown with price requests instead of unconfirmed prices or models. */
 
-export const productCategories = ['Laptops', 'Desktops', 'Storage & Parts', 'Accessories'] as const;
+export const productCategories = [
+  'Laptops & Computers',
+  'Computer Accessories',
+  'Flash Disks & Memory Cards',
+  'Earphones & Headphones',
+  'Chargers, Cables & Adapters',
+] as const;
 export type ProductCategory = (typeof productCategories)[number];
 
 export interface Product {
@@ -16,91 +18,47 @@ export interface Product {
   imageAlt: string;
   /** Optional starting price in KSh */
   priceFrom?: number;
-  /** Optional short badge, e.g. "Popular" or "New stock" */
-  badge?: string;
 }
 
 export const products: Product[] = [
   {
-    id: 'hp-elitebook',
-    name: 'HP EliteBook',
-    description: 'Slim, durable business laptop with a comfortable keyboard and long battery life.',
-    category: 'Laptops',
-    image: '/images/product-hp-elitebook.webp',
-    imageAlt: 'Silver HP EliteBook business laptop on a desk',
-    badge: 'Business',
+    id: 'laptops-computers',
+    name: 'Laptops & Computers',
+    description: 'Ask about current models and prices.',
+    category: 'Laptops & Computers',
+    image: '/images/laptops-computers.jpeg',
+    imageAlt: 'Sample laptop photo for the laptops and computers category',
   },
   {
-    id: 'dell-latitude',
-    name: 'Dell Latitude',
-    description: 'Reliable workhorse for office, school and everyday productivity.',
-    category: 'Laptops',
-    image: '/images/product-dell-latitude.webp',
-    imageAlt: 'Dell Latitude laptop open on a white surface',
+    id: 'computer-accessories',
+    name: 'Computer Accessories',
+    description: 'Ask about current products and prices.',
+    category: 'Computer Accessories',
+    image: '/images/computer%20accessories.jpg',
+    imageAlt: 'Computer mouse shown as an accessory example',
   },
   {
-    id: 'lenovo-thinkpad',
-    name: 'Lenovo ThinkPad',
-    description: 'Known for tough build quality and one of the best keyboards in its class.',
-    category: 'Laptops',
-    image: '/images/product-lenovo-thinkpad.webp',
-    imageAlt: 'Lenovo ThinkPad laptop on a round table',
-    badge: 'Popular',
+    id: 'flash-disks-memory-cards',
+    name: 'Flash Disks & Memory Cards',
+    description: 'Ask about current products and prices.',
+    category: 'Flash Disks & Memory Cards',
+    image: '/images/flash%20cards.jpeg',
+    imageAlt: 'Portable storage product shown as a storage category example',
   },
   {
-    id: 'gaming-laptop',
-    name: 'Gaming Laptop',
-    description: 'Dedicated graphics and high-refresh displays for gaming, design and editing.',
-    category: 'Laptops',
-    image: '/images/product-gaming-laptop.webp',
-    imageAlt: 'Gaming laptop with a colourful backlit keyboard',
-  },
-  {
-    id: 'desktop-pc',
-    name: 'Desktop PC',
-    description: 'Office towers and custom builds configured for work, study or gaming.',
-    category: 'Desktops',
-    image: '/images/product-desktop-pc.webp',
-    imageAlt: 'Desktop PC tower with blue cooling fans',
-  },
-  {
-    id: 'ssd',
-    name: 'SSD & Storage Drives',
-    description: 'SATA and NVMe SSDs plus hard drives for faster boot times and more space.',
-    category: 'Storage & Parts',
-    image: '/images/product-ssd.webp',
-    imageAlt: 'Internal computer storage drive',
-  },
-  {
-    id: 'ram',
-    name: 'RAM Upgrades',
-    description: 'Laptop and desktop memory to make multitasking smoother.',
-    category: 'Storage & Parts',
-    image: '/images/product-ram.webp',
-    imageAlt: 'Two computer RAM memory sticks',
-  },
-  {
-    id: 'keyboard-mouse',
-    name: 'Wireless Keyboard & Mouse',
-    description: 'Clean, clutter-free desk setups with reliable wireless connectivity.',
-    category: 'Accessories',
-    image: '/images/product-keyboard-mouse.webp',
-    imageAlt: 'White wireless keyboard on a desk',
-  },
-  {
-    id: 'laptop-chargers',
-    name: 'Laptop Chargers',
-    description: 'Chargers and adapters for HP, Dell, Lenovo, Apple and other popular brands.',
-    category: 'Accessories',
-    image: '/images/product-laptop-charger.webp',
-    imageAlt: 'White laptop charger with its cable',
-  },
-  {
-    id: 'headphones',
-    name: 'Headphones & Earphones',
-    description: 'Wired and wireless audio for calls, classes, music and gaming.',
-    category: 'Accessories',
+    id: 'earphones-headphones',
+    name: 'Earphones & Headphones',
+    description: 'Ask about current products and prices.',
+    category: 'Earphones & Headphones',
     image: '/images/product-headphones.webp',
-    imageAlt: 'Over-ear headphones on a white background',
+    imageAlt: 'Unbranded over-ear headphones',
+  },
+  {
+    id: 'chargers-cables-adapters',
+    name: 'Chargers, Cables & Adapters',
+    description: 'Ask about current products and prices.',
+    category: 'Chargers, Cables & Adapters',
+    image: '/images/charger.jpg',
+    imageAlt: 'Charger and cable shown as a charger category example',
   },
 ];

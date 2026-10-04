@@ -11,36 +11,24 @@ export interface PhoneNumber {
 }
 
 export const site = {
-  name: 'Kwach Computers',
+  name: 'KWACH_001 COMPUTERS',
   handle: 'KWACH_001',
   tagline: 'Powering your digital world',
-  strapline: 'Computers • Accessories • Repairs • IT Solutions',
-  values: ['Fast', 'Reliable', 'Affordable'],
-  url: 'https://kwachcomputers.com',
 
   /** First number is treated as the main number for buttons. */
   phones: [
-    { display: '0785 859 442', international: '+254785859442' },
-    { display: '0115 552 044', international: '+254115552044' },
+    { display: '0785859442', international: '+254785859442' },
+    { display: '0115552044', international: '+254115552044' },
   ] satisfies PhoneNumber[],
 
   email: 'kwachcomputers@gmail.com',
 
-  // TODO: update with your shop location and real opening hours.
-  location: 'Kenya — visits by appointment',
-  hours: 'Mon – Sat, 8:00 AM – 7:00 PM',
-
   /** Default text pre-filled when someone taps a WhatsApp button. */
-  whatsappGreeting: "Hi Kwach Computers, I'd like to make an enquiry.",
+  whatsappGreeting: "Hi KWACH_001 COMPUTERS, I'd like to ask about your products.",
 
-  /** WhatsApp channel (from the QR code on the flyer). */
-  whatsappChannel: 'https://whatsapp.com/channel/0029VbBREb23rZZUpcNx761Y',
-
-  // TODO: replace with your real social media profile links.
   socials: {
-    facebook: 'https://www.facebook.com/',
-    instagram: 'https://www.instagram.com/',
-    tiktok: 'https://www.tiktok.com/',
+    instagram: 'https://www.instagram.com/kwach_001_computers/',
+    tiktok: 'https://www.tiktok.com/@kwach_001.computers',
   },
 } as const;
 

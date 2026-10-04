@@ -5,18 +5,18 @@ import SectionHeading from './SectionHeading';
 
 export default function Products() {
   return (
-    <section id="products" aria-labelledby="products-heading" className="bg-white py-20 sm:py-24 lg:py-28">
+    <section id="products" aria-labelledby="products-heading" className="bg-slate-100 py-20 sm:py-24 lg:py-28">
       <div className="container">
         <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <SectionHeading
             id="products-heading"
-            eyebrow="Products"
-            title="Technology That Fits Your Needs."
-            description="From your first laptop to a full office setup, we help you get dependable equipment at a price that makes sense."
+            eyebrow="What We Sell"
+            title="Products & Accessories"
+            description="Explore our product categories and contact us for current availability and prices."
           />
           <Reveal>
             <a href="#featured" className="btn border border-slate-300 text-navy-900 hover:border-navy-900 hover:bg-navy-950 hover:text-white">
-              View featured products
+              View product cards
             </a>
           </Reveal>
         </div>

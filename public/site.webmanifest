@@ -1,9 +1,8 @@
 {
-  "name": "Kwach Computers",
-  "short_name": "Kwach",
+  "name": "KWACH_001 COMPUTERS",
+  "short_name": "KWACH_001",
   "icons": [
-    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
-    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+    { "src": "/images/kwach-logo-lg.webp", "sizes": "any", "type": "image/webp" }
   ],
   "theme_color": "#020818",
   "background_color": "#020818",

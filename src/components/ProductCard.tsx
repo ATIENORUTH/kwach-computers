@@ -5,8 +5,8 @@ import { whatsappLink } from '../lib/links';
 const formatPrice = (amount: number) => `From KSh ${amount.toLocaleString('en-KE')}`;
 
 export default function ProductCard({ product }: { product: Product }) {
-  const { name, description, category, image, imageAlt, priceFrom, badge } = product;
-  const enquiry = `Hi Kwach Computers, I'd like to know the price and availability of: ${name}.`;
+  const { name, description, category, image, imageAlt, priceFrom } = product;
+  const enquiry = `Hi KWACH_001 COMPUTERS, I'd like to know the price and availability of: ${name}.`;
 
   return (
     <article className="card card-hover group flex h-full flex-col overflow-hidden">
@@ -19,11 +19,6 @@ export default function ProductCard({ product }: { product: Product }) {
           height={600}
           className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
         />
-        {badge && (
-          <span className="absolute left-3 top-3 rounded-md bg-navy-950/90 px-2 py-1 text-[0.7rem] font-semibold text-brand-300 backdrop-blur">
-            {badge}
-          </span>
-        )}
       </div>
       <div className="flex flex-1 flex-col p-5">
         <p className="text-xs font-semibold uppercase tracking-wider text-brand-700">{category}</p>

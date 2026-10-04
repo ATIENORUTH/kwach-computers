@@ -1,9 +1,7 @@
-import { CheckCircle2, Loader2, Send } from 'lucide-react';
-import { useEffect, useId, useRef, useState, type ChangeEvent, type FormEvent } from 'react';
+import { useId, useState, type ChangeEvent, type FormEvent } from 'react';
 import { needOptions, type NeedOption } from '../data/contact';
 import { cn } from '../lib/cn';
 import { whatsappLink } from '../lib/links';
-import { QUOTE_EVENT, type QuoteDetail } from '../lib/quote';
 import { WhatsAppIcon } from './BrandIcons';
 import FormField from './FormField';
 
@@ -32,7 +30,7 @@ function validate(values: FormValues): FormErrors {
 
 function toWhatsAppMessage(v: FormValues) {
   return [
-    'Hi Kwach Computers,',
+    'Hi KWACH_001 COMPUTERS,',
     '',
     `Name: ${v.name}`,
     `Phone: ${v.phone}`,
@@ -48,24 +46,7 @@ function toWhatsAppMessage(v: FormValues) {
 export default function ContactForm() {
   const [values, setValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<FormErrors>({});
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
-  const [submitted, setSubmitted] = useState<FormValues | null>(null);
-  const nameRef = useRef<HTMLInputElement>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
   const uid = useId();
-
-  // Pre-fill the form when a "Ask for a Quote" button elsewhere on the page is clicked.
-  useEffect(() => {
-    const onQuote = (e: Event) => {
-      const { need, message } = (e as CustomEvent<QuoteDetail>).detail;
-      setStatus('idle');
-      setValues((v) => ({ ...v, need, message: v.message || message || '' }));
-      setErrors((err) => ({ ...err, need: undefined }));
-      window.setTimeout(() => nameRef.current?.focus({ preventScroll: true }), 600);
-    };
-    window.addEventListener(QUOTE_EVENT, onQuote);
-    return () => window.removeEventListener(QUOTE_EVENT, onQuote);
-  }, []);
 
   const onChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -73,7 +54,7 @@ export default function ContactForm() {
     if (errors[name as keyof FormValues]) setErrors((err) => ({ ...err, [name]: undefined }));
   };
 
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const found = validate(values);
     setErrors(found);
@@ -83,25 +64,8 @@ export default function ContactForm() {
       return;
     }
 
-    setStatus('submitting');
-
-    // TODO: Connect a backend or form service here.
-    // Options: Netlify Forms, Formspree, EmailJS, or your own API endpoint. Example:
-    //   await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    //     body: JSON.stringify(values),
-    //   });
-    await new Promise((resolve) => setTimeout(resolve, 700));
-
-    setSubmitted(values);
-    setStatus('success');
-    setValues(initialValues);
+    window.open(whatsappLink(toWhatsAppMessage(values)), '_blank', 'noopener,noreferrer');
   };
-
-  useEffect(() => {
-    if (status === 'success') cardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, [status]);
 
   const field = (name: keyof FormValues) => ({
     id: `${uid}-${name}`,
@@ -114,39 +78,14 @@ export default function ContactForm() {
   });
 
   return (
-    <div ref={cardRef} id="contact-form" className="scroll-mt-24 rounded-2xl border border-slate-200 bg-white p-6 shadow-lift sm:p-8 lg:p-10">
-      {status === 'success' && submitted ? (
-        <div className="flex min-h-[420px] flex-col items-center justify-center text-center" role="status">
-          <span className="flex h-16 w-16 items-center justify-center rounded-full bg-brand-50 text-brand-600">
-            <CheckCircle2 size={34} aria-hidden="true" />
-          </span>
-          <h3 className="mt-6 text-2xl font-bold text-navy-950">Thanks, {submitted.name.split(' ')[0]}!</h3>
-          <p className="mt-3 max-w-sm text-slate-600">
-            We&apos;ve received your request. For the fastest response, you can also send it straight to us on WhatsApp.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href={whatsappLink(toWhatsAppMessage(submitted))}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-whatsapp px-6"
-            >
-              <WhatsAppIcon size={18} />
-              Send via WhatsApp
-            </a>
-            <button type="button" onClick={() => setStatus('idle')} className="btn border border-slate-300 px-6 text-navy-900 hover:bg-slate-50">
-              Send another request
-            </button>
-          </div>
-        </div>
-      ) : (
-        <form onSubmit={onSubmit} noValidate aria-label="Request a quote">
-          <h3 className="text-2xl font-bold text-navy-950">Request a quote</h3>
-          <p className="mt-2 text-slate-600">Fill in your details and we&apos;ll get back to you shortly.</p>
+    <div id="contact-form" className="scroll-mt-24 rounded-2xl border border-slate-200 bg-white p-6 shadow-lift sm:p-8 lg:p-10">
+        <form onSubmit={onSubmit} noValidate aria-label="Contact KWACH_001 COMPUTERS on WhatsApp">
+          <h3 className="text-2xl font-bold text-navy-950">Send an enquiry</h3>
+          <p className="mt-2 text-slate-600">Your message will open in WhatsApp for you to send.</p>
 
           <div className="mt-8 grid gap-5 sm:grid-cols-2">
             <FormField label="Full name" htmlFor={`${uid}-name`} error={errors.name} errorId={`${uid}-name-error`} required>
-              <input {...field('name')} ref={nameRef} type="text" autoComplete="name" placeholder="e.g. Jane Wanjiku" />
+              <input {...field('name')} type="text" autoComplete="name" placeholder="Your name" />
             </FormField>
             <FormField label="Phone number" htmlFor={`${uid}-phone`} error={errors.phone} errorId={`${uid}-phone-error`} required>
               <input {...field('phone')} type="tel" inputMode="tel" autoComplete="tel" placeholder="e.g. 0712 345 678" />
@@ -174,34 +113,18 @@ export default function ContactForm() {
               required
               className="sm:col-span-2"
             >
-              <textarea
-                {...field('message')}
-                rows={5}
-                placeholder="Tell us about the device, budget or problem…"
-                className={cn(field('message').className, 'resize-y')}
-              />
+              <textarea {...field('message')} rows={5} placeholder="Write your enquiry…" className={cn(field('message').className, 'resize-y')} />
             </FormField>
           </div>
 
           <button
             type="submit"
-            disabled={status === 'submitting'}
-            className="btn-primary mt-8 w-full py-3.5 disabled:opacity-70 sm:w-auto sm:px-8"
+            className="btn-primary mt-8 w-full py-3.5 sm:w-auto sm:px-8"
           >
-            {status === 'submitting' ? (
-              <>
-                <Loader2 size={18} className="animate-spin" aria-hidden="true" />
-                Sending…
-              </>
-            ) : (
-              <>
-                <Send size={18} aria-hidden="true" />
-                Submit Request
-              </>
-            )}
+            <WhatsAppIcon size={18} aria-hidden="true" />
+            Send via WhatsApp
           </button>
         </form>
-      )}
     </div>
   );
 }
